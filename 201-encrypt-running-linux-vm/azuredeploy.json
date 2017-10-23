@@ -23,10 +23,10 @@
       "type": "string"
     },
     "encryptionOperation": {
-      "allowedValues": [ "EnableEncryption", "EnableEncryptionFormat" ],
+      "allowedValues": [ "EnableEncryption", "EnableEncryptionFormat", "EnableEncryptionFormatAll"],
       "defaultValue": "EnableEncryption",
       "metadata": {
-        "description": "EnableEncryption would encrypt the disks in place and EnableEncryptionFormat would format the disks directly"
+        "description": "EnableEncryption would encrypt the disks in place, EnableEncryptionFormat would format the disks in the query directly, and EnableEncryptFormatAll would encrypt-format the disks in place."
       },
       "type": "string"
     },
@@ -57,13 +57,6 @@
         "description": "Resource group of the KeyVault"
       }
     },
-    "passphrase": {
-      "defaultValue": "",
-      "metadata": {
-        "description": "The passphrase for the disks"
-      },
-      "type": "securestring"
-    },
     "sequenceVersion": {
       "defaultValue": "1",
       "metadata": {
@@ -90,7 +83,7 @@
     },
     "_artifactsLocation": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master",
+      "defaultValue": "https://raw.githubusercontent.com/vermashi/azure-quickstart-templates/encrypt-format-running-linux-vm",
       "metadata": {
         "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
       }
@@ -119,10 +112,9 @@
       "location": "[resourceGroup().location]",
       "properties": {
         "protectedSettings": {
-          "AADClientSecret": "[parameters('aadClientSecret')]",
-          "Passphrase": "[parameters('passphrase')]"
+          "AADClientSecret": "[parameters('aadClientSecret')]"
         },
-        "publisher": "Microsoft.Azure.Security",
+        "publisher": "Microsoft.Azure.Security.Edp",
         "settings": {
           "AADClientID": "[parameters('aadClientID')]",
           "DiskFormatQuery": "[parameters('diskFormatQuery')]",

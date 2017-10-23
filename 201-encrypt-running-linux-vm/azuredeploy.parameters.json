@@ -8,8 +8,8 @@
     "aadClientSecret": {
       "value": ""
     },
-    "diskFormatQuery": {
-      "value": ""
+    "encryptionOperation": {
+      "value": "EnableEncryptionFormatAll"
     },
     "volumeType": {
       "value": ""
@@ -21,9 +21,6 @@
       "value": ""
     },
     "keyVaultResourceGroup": {
-      "value": ""
-    },
-    "passphrase": {
       "value": ""
     },
     "sequenceVersion": {
